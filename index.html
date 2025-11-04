@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Invitation</title>
+
+    <!-- Basic Styles -->
+    <style>
+        /* Reset and general styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: url('images/fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff5e5e;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #ff8e8e;
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>You’re Invited!</h1>
+    <p>We would love for you to join us to celebrate a very special moment.</p>
+
+    <button id="showDetailsBtn">See Details</button>
+    <div class="details" id="details">
+        📅 Date: November 15, 2025<br>
+        🕒 Time: 7:00 PM<br>
+        📍 Location: Main Hall, Unipunto Store<br>
+        🎉 Don’t miss it!
+    </div>
+
+    <button id="soundBtn">Play Music 🎵</button>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="media/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script>
+        // Show details
+        const showBtn = document.getElementById('showDetailsBtn');
+        const details = document.getElementById('details');
+        showBtn.addEventListener('click', () => {
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Toggle music
+        const soundBtn = document.getElementById('soundBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        soundBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                soundBtn.textContent = "Music On 🎶";
+            } else {
+                bgMusic.pause();
+                soundBtn.textContent = "Play Music 🎵";
+            }
+        });
+    </script>
+
+</body>
+</html>
